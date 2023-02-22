@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://pizzahot.local'),
+    'url' => env('APP_URL', 'http://PizzaHot.local'),
 
     'asset_url' => env('ASSET_URL'),
 
