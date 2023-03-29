@@ -30,9 +30,9 @@ class AuthController extends Controller
                 'phone_number' => $request->phone_number,
                 'is_admin' => $request->is_admin,
             ]);
-    
+
             $token = Auth::login($user);
-            
+
             return response()->json([
                 'status' => 'True',
                 'message' => 'Register successfully',
@@ -41,14 +41,14 @@ class AuthController extends Controller
                     'type' => 'bearer',
                 ],
                 'error' => 'False',
-            ],200);  
+            ],200);
         }catch (Exception $e) {
             return response()->json([
                 'status' => 'False',
                 'message' => "Register failed!" ,
                 'data' => 'No data!',
                 'error' => 'True', $e
-            ],404);  
+            ],404);
         }
     }
 
@@ -66,9 +66,9 @@ class AuthController extends Controller
                     'error' => 'True'
                 ], 401);
             }
-    
+
             $user = Auth::user();
-            
+
             return response()->json([
                 'status' => 'True',
                 'message' => 'Login Successfully',
@@ -77,14 +77,14 @@ class AuthController extends Controller
                     'type' => 'bearer',
                 ],
                 'error' => 'False',
-            ],200);  
+            ],200);
         }catch (Exception $e) {
             return response()->json([
                 'status' => 'False',
                 'message' => "Login failed!" ,
                 'data' => 'No data!',
                 'error' => 'True', $e
-            ],404);  
+            ],404);
         }
     }
 
@@ -93,20 +93,20 @@ class AuthController extends Controller
     {
         try{
             Auth::logout();
-            
+
             return response()->json([
                 'status' => 'True',
                 'message' => 'Logout successfully',
                 'data' => 'No data!',
                 'error' => 'False',
-            ],200);  
+            ],200);
         }catch (Exception $e) {
             return response()->json([
                 'status' => 'False',
                 'message' => "Logout failed!" ,
                 'data' => 'No data!',
                 'error' => 'True', $e
-            ],404);  
+            ],404);
         }
     }
 }

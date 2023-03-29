@@ -18,10 +18,14 @@ class User extends Authenticatable implements JWTSubject
      */
     protected $fillable = [
         'user_name',
+        'name',
         'email',
         'password',
         'address',
         'phone_number',
+        'device_token',
+        'provider_uid',
+        'provider',
         'is_admin',
     ];
 
@@ -53,7 +57,7 @@ class User extends Authenticatable implements JWTSubject
     {
         return $this->getKey();
     }
-    
+
     /**
      * Return a key value array, containing any custom claims to be added to the JWT.
      *
